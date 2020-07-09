@@ -1,0 +1,6 @@
+out
+*.fasta
+*.tsv
+*.csv
+*.Rhistory
+*.RData

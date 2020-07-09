@@ -1,0 +1,15 @@
+name: msa
+channels:
+   - r
+   - bioconda
+   - conda-forge
+   - defaults
+dependencies:
+   - r-base=3.6.3
+   - r-devtools=2.0.2
+   - r-stringi=1.4.6
+   - r-stringr=1.4.0
+   - conda-forge::r-ape=5.3
+   - r-biocmanager=1.30.10
+   - bioconductor-decipher=2.14.0
+   - bioconductor-biostrings=2.54.0
