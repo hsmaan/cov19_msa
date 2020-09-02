@@ -1,8 +1,8 @@
 
-# COVID-19 Evolutionary Distance
+# COV19 MSA
 
-An evolutionary distance calculation tool for SARS-CoV-2 viral genomes
-that removes the following homoplasic sites:
+A multiple-sequence alignment tool for SARS-CoV-2 viral genomes that
+removes the following homoplasic sites:
 
 **187, 1059, 2094, 3037, 3130, 6990, 8022, 10323, 10741, 11074, 13408,
 14786, 19684, 20148, 21137, 24034, 24378, 25563, 26144, 26461, 26681,
@@ -12,22 +12,10 @@ that removes the following homoplasic sites:
 
 The script options are the following (**ensure input\_fasta is in same
 directory as
-    cov19\_evo\_dist**):
+    cov19\_msa**):
 
-    Rscript --verbose evo_dist.R [input_fasta] [length_cutoff] [ambg_nucleotide_cutoff] [dist_method] [iterations] [refinements] [cores] 
+    Rscript --verbose msa.R [input_fasta] [iterations] [refinements] [cores] 
 
-  - input\_fasta: location of the input fasta file containing query
-    sequences - ensure it’s in same directory as cov19\_evo\_dist
-    \[file\]
-  - length\_cutoff: minimum length of query sequences for filtering
-    \[0-30000\]
-  - ambg\_nucleotide\_cutoff: maximum percentage of ambiguous
-    nucleotides in query sequences for filtering \[0-1\]
-  - dist\_method: The evolutionary distance metric to use from the ape
-    library. “K80” is recommended. More information is available in the
-    ape documentation
-    <https://www.rdocumentation.org/packages/ape/versions/5.4-1/topics/dist.dna>,
-    under the “model” parameter. \[model\_name\]
   - iterations: Number of iterations for multiple sequence alignment
     algorithm - 0 recommended unless sequences are particularly low
     quality (then 5-6). \[0-n\]
@@ -38,7 +26,7 @@ directory as
 
 E.g:
 
-    Rscript --verbose evo_dist.R example.fasta 29000 0.1 K80 0 0 2
+    Rscript --verbose msa.R example.fasta 0 0 4
 
 Output is saved to **out** folder under same name as input file
 
@@ -46,13 +34,13 @@ Output is saved to **out** folder under same name as input file
 
 Clone repository:
 
-    git clone https://github.com/hsmaan/cov19_evo_dist.git
+    git clone https://github.com/hsmaan/cov19_msa.git
 
 Set up and activate conda environment:
 
-    conda env create --name evo_env --file evo_dist.yaml
-    conda activate evo_env
+    conda env create --name msa_env --file msa.yaml
+    conda activate msa_env
 
 Example run:
 
-    Rscript --verbose evo_dist.R example.fasta 29000 0.1 K80 0 0 2
+    Rscript --verbose msa.R example.fasta 0 0 4
